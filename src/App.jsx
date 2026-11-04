@@ -140,7 +140,7 @@ const App = () => {
             <Routes>
                 <Route
                     path="/"
-                    element={<HomePage />}
+                    element={<HomePage go={go} />}
                 />
 
                 <Route
