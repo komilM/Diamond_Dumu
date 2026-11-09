@@ -12,7 +12,7 @@ import HomePage from "./HomePage";
 
 const BRAND = "Diamond Dumu";
 const PHONE = "+998 90 000 00 00";
-const TELEGRAM = "https://t.me/your_username";
+const TELEGRAM = "https://t.me/";
 const PHONE_LINK = `tel:${PHONE.replace(/\s/g, "")}`;
 
 /* NAVBAR */
