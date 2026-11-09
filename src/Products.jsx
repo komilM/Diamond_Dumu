@@ -56,6 +56,7 @@ function Products({ go, startCategory = "all" }) {
         earring: "Ziraklar",
         necklace: "Marjonlar",
         bracelet: "Bilaguzuklar",
+        watch: "Soatlar",
     };
 
     // Filtrlash

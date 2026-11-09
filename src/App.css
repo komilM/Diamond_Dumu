@@ -1,16 +1,17 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Jost:wght@300;400;500;600&display=swap');
 
 :root {
-  --bg-light: #F7F3EA;
-  --dark: #1C1712;
-  --turquoise: #8B7355;
-  --gold: #B8955A;
-  --gold-light: #E4C98A;
-  --gray: #E9E2D6;
-  --cream: #FCFAF5;
-  --beige: #EFE6D8;
-  --champagne: #DCC69A;
-  --warm-white: #FFFEFA;
+  --bg-light: #F4F0E6;
+  --dark: #102820;
+  --turquoise: #1D4034;
+  --gold: #C9A45C;
+  --gold-light: #DCC58E;
+  --gray: #E5E0D5;
+  --cream: #FAF8F2;
+  --beige: #E8DDC8;
+  --champagne: #D6C19A;
+  --warm-white: #FFFFFF;
 }
 
 * {
@@ -60,7 +61,7 @@ a {
   justify-content: space-between;
   gap: 24px;
   padding: 22px 5vw;
-  border-bottom: 1px solid rgba(28, 23, 18, 0.12);
+  border-bottom: 1px solid rgba(16, 40, 32, 0.12);
   background: var(--cream);
 }
 
@@ -68,6 +69,7 @@ a {
   font: 700 26px 'Bodoni Moda', serif;
   text-decoration: none;
   letter-spacing: 0.01em;
+  color: var(--dark);
 }
 
 .navbar-links {
@@ -123,6 +125,7 @@ a {
 .button-dark:hover {
   background: var(--gold);
   border-color: var(--gold);
+  color: var(--dark);
 }
 
 .button-outline {
@@ -142,8 +145,9 @@ a {
 }
 
 .button-gold:hover {
-  background: #FCFAF5;
-  border-color: #FCFAF5;
+  background: #1D4034;
+  border-color: #1D4034;
+  color: #FFFFFF;
 }
 
 .button-outline-light {
@@ -251,23 +255,23 @@ a {
 /* COLORS */
 
 .color-turquoise {
-  --card-bg: #B9A17D;
-  --icon-color: #FFFEFA;
+  --card-bg: #1D4034;
+  --icon-color: #DCC58E;
 }
 
 .color-dark {
-  --card-bg: #1C1712;
-  --icon-color: #E4C98A;
+  --card-bg: #102820;
+  --icon-color: #C9A45C;
 }
 
 .color-gray {
-  --card-bg: #E9E2D6;
-  --icon-color: #6B5437;
+  --card-bg: #E5E0D5;
+  --icon-color: #1D4034;
 }
 
 .color-gold {
-  --card-bg: #E4C98A;
-  --icon-color: #1C1712;
+  --card-bg: #C9A45C;
+  --icon-color: #102820;
 }
 
 /* COLLECTION */
@@ -343,8 +347,8 @@ a {
 
 .about {
   margin-top: 120px;
-  background: #92764D;
-  color: #fff;
+  background: #1D4034;
+  color: #F4F0E6;
   padding: 110px 0;
   scroll-margin-top: 0;
 }
@@ -388,7 +392,7 @@ a {
 /* CONTACT */
 
 .contact {
-  background: #1C1712;
+  background: #102820;
   color: var(--bg-light);
   padding: 110px 0 36px;
   scroll-margin-top: 0;
@@ -544,7 +548,7 @@ a.collection-card {
   padding: 6px 16px;
   border-radius: 999px;
   border: 1px solid var(--gold);
-  color: #9A7542;
+  color: #92703D;
   font: 600 17px 'Jost', sans-serif;
 }
 
@@ -730,5 +734,3 @@ a.collection-card {
     scroll-behavior: auto;
   }
 }
-
-
