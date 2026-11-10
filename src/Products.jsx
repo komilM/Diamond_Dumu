@@ -4,12 +4,18 @@ import "./App.css";
 import Cartier from "./assets/Cartier.png";
 import Manswatch from "./assets/Mans-watch.png"
 import Diamondwatch from "./assets/Diamond Watch.png";
+import Chopar from "./assets/Chopar.png";
+import Rolex from "./assets/Rolex.png";
+import Emeraldring from "./assets/Ring.png"
 
 // Rasmlar: MockAPI dagi "image" qiymati : import qilingan rasm
 const localImages = {
     Cartier,
     Manswatch,
-    Diamondwatch
+    Diamondwatch,
+    Chopar,
+    Rolex,
+    Emeraldring
 };
 
 const getImage = (p) => localImages[p.image] || "";
@@ -174,17 +180,19 @@ function Products({ go, startCategory = "all" }) {
                                                 {getName(p)}
                                             </h3>
 
-                                            <p className="product-card-material">
-                                                {p.description ||
-                                                    p.material ||
-                                                    "Diamond Dumu"}
-                                            </p>
-
-                                            <p className="product-card-price">
-                                                {getPrice(p) > 0
-                                                    ? formatPrice(getPrice(p))
-                                                    : "Narxi so'raladi"}
-                                            </p>
+                                            <div className="product-card-material">
+                                                {[
+                                                    p.description,
+                                                    p.description1,
+                                                    p.description2,
+                                                    p.description3,
+                                                    p.material
+                                                ]
+                                                    .filter(Boolean)
+                                                    .map((item, index) => (
+                                                        <p key={index}>{item}</p>
+                                                    ))}
+                                            </div>
 
                                             <a
                                                 href="tel:+998900000000"
