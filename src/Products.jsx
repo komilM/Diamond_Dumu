@@ -1,6 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
+import Cartier from "./assets/Cartier.png";
+import Manswatch from "./assets/Mans-watch.png"
+import Diamondwatch from "./assets/Diamond Watch.png";
+
+// Rasmlar: MockAPI dagi "image" qiymati : import qilingan rasm
+const localImages = {
+    Cartier,
+    Manswatch,
+    Diamondwatch
+};
+
+const getImage = (p) => localImages[p.image] || "";
+
 const API_URL =
     "https://69a11be22e82ee536fa037ba.mockapi.io/products";
 
@@ -34,6 +47,7 @@ function Products({ go, startCategory = "all" }) {
 
             setProducts(Array.isArray(data) ? data : []);
         } catch (err) {
+            console.error(err);
             setError(true);
         } finally {
             setLoading(false);
@@ -46,9 +60,7 @@ function Products({ go, startCategory = "all" }) {
 
     // Kategoriyalar
     const categories = [
-        ...new Set(
-            products.map((p) => p.category).filter(Boolean)
-        ),
+        ...new Set(products.map((p) => p.category).filter(Boolean)),
     ];
 
     const categoryNames = {
@@ -68,11 +80,7 @@ function Products({ go, startCategory = "all" }) {
     const getName = (p) =>
         p.name || p.title || p.productName || "Taqinchoq";
 
-    const getImage = (p) =>
-        p.image || p.imageUrl || p.img || p.photo || "";
-
-    const getPrice = (p) =>
-        p.price ?? p.cost ?? 0;
+    const getPrice = (p) => p.price ?? p.cost ?? 0;
 
     return (
         <main className="catalog">
@@ -110,11 +118,9 @@ function Products({ go, startCategory = "all" }) {
                 {!loading && !error && (
                     <>
                         <div className="catalog-filters">
-
                             <button
-                                className={`filter-button ${
-                                    category === "all" ? "is-active" : ""
-                                }`}
+                                className={`filter-button ${category === "all" ? "is-active" : ""
+                                    }`}
                                 onClick={() => setCategory("all")}
                             >
                                 Barchasi
@@ -123,15 +129,13 @@ function Products({ go, startCategory = "all" }) {
                             {categories.map((c) => (
                                 <button
                                     key={c}
-                                    className={`filter-button ${
-                                        category === c ? "is-active" : ""
-                                    }`}
+                                    className={`filter-button ${category === c ? "is-active" : ""
+                                        }`}
                                     onClick={() => setCategory(c)}
                                 >
                                     {categoryNames[c] || c}
                                 </button>
                             ))}
-
                         </div>
 
                         <p className="catalog-count">
@@ -144,49 +148,53 @@ function Products({ go, startCategory = "all" }) {
                             </div>
                         ) : (
                             <div className="catalog-grid">
+                                {filteredProducts.map((p) => {
+                                    const src = getImage(p);
 
-                                {filteredProducts.map((p) => (
-                                    <article
-                                        className="product-card"
-                                        key={p.id}
-                                    >
-                                        <div className="product-card-img product-image">
-
-                                            <img
-                                                src={getImage(p)}
-                                                alt={getName(p)}
-                                                loading="lazy"
-                                                onError={(e) => {
-                                                    e.currentTarget.style.display = "none";
-                                                }}
-                                            />
-
-                                        </div>
-
-                                        <h3 className="product-card-name">
-                                            {getName(p)}
-                                        </h3>
-
-                                        <p className="product-card-material">
-                                            {p.description ||
-                                                p.material ||
-                                                "Diamond Dumu"}
-                                        </p>
-
-                                        <p className="product-card-price">
-                                            {formatPrice(getPrice(p))}
-                                        </p>
-
-                                        <a
-                                            href="tel:+998900000000"
-                                            className="button button-outline button-small product-card-button"
+                                    return (
+                                        <article
+                                            className="product-card"
+                                            key={p.id}
                                         >
-                                            Buyurtma berish
-                                        </a>
+                                            <div className="product-card-img product-image">
+                                                {src ? (
+                                                    <img
+                                                        src={src}
+                                                        alt={getName(p)}
+                                                        loading="lazy"
+                                                    />
+                                                ) : (
+                                                    <span className="product-no-image">
+                                                        ◆
+                                                    </span>
+                                                )}
+                                            </div>
 
-                                    </article>
-                                ))}
+                                            <h3 className="product-card-name">
+                                                {getName(p)}
+                                            </h3>
 
+                                            <p className="product-card-material">
+                                                {p.description ||
+                                                    p.material ||
+                                                    "Diamond Dumu"}
+                                            </p>
+
+                                            <p className="product-card-price">
+                                                {getPrice(p) > 0
+                                                    ? formatPrice(getPrice(p))
+                                                    : "Narxi so'raladi"}
+                                            </p>
+
+                                            <a
+                                                href="tel:+998900000000"
+                                                className="button button-outline button-small product-card-button"
+                                            >
+                                                Buyurtma berish
+                                            </a>
+                                        </article>
+                                    );
+                                })}
                             </div>
                         )}
                     </>

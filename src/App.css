@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Jost:wght@300;400;500;600&display=swap');
 
 :root {
@@ -503,7 +502,9 @@ a.collection-card {
   display: flex;
   flex-direction: column;
   animation: fade-up .55s cubic-bezier(.2,.7,.2,1) both;
+  transition: transform .4s cubic-bezier(.2,.7,.2,1);
 }
+
 
 .product-card-img {
   aspect-ratio: 3 / 4;
@@ -515,18 +516,8 @@ a.collection-card {
   color: var(--icon-color);
 }
 
-.product-card-img svg {
-  width: 50%;
-  height: auto;
-  transition: transform .5s cubic-bezier(.2,.7,.2,1);
-}
-
-.product-card:hover .product-card-img svg {
-  transform: scale(1.1) rotate(-4deg);
-}
-
 .product-card-name {
-  margin-top: 18px;
+  margin-top: 20px;
   font: 500 25px/1.2 'Bodoni Moda', serif;
 }
 
@@ -553,7 +544,7 @@ a.collection-card {
 }
 
 .product-card-button {
-  align-self: flex-start;
+  align-self: stretch;
   margin-top: 16px;
 }
 
@@ -588,22 +579,51 @@ a.collection-card {
 
 /* MOCK API PRODUCT IMAGES */
 
-.product-image {
-  background: var(--warm-white);
-  padding: 25px;
-  overflow: hidden;
+.product-card-img.product-image {
   position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  overflow: hidden;
+  background: #0b1a15;
+  border-radius: 18px;
+  box-shadow:
+    0 0 0 1px rgba(201, 164, 92, .55),
+    0 22px 40px -22px rgba(16, 40, 32, .5);
+  transition: box-shadow .4s;
 }
 
+.product-card:hover .product-card-img.product-image {
+  box-shadow:
+    0 0 0 1px var(--gold),
+    0 30px 50px -22px rgba(16, 40, 32, .6);
+}
+
+/* rasm to'liq ko'rinadi: kesilmaydi, kattalashmaydi */
 .product-image img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform .4s ease;
+  object-position: center;
+  transition: transform .6s cubic-bezier(.2,.7,.2,1);
 }
 
 .product-card:hover .product-image img {
-  transform: scale(1.08);
+  transform: scale(1.12);
+}
+
+/* rasmi yo'q kartalar */
+.product-no-image {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #1D4034, #102820);
+  color: var(--gold-light);
+  font-size: 56px;
 }
 
 /* ANIMATIONS */
@@ -711,8 +731,8 @@ a.collection-card {
     padding: 5px 12px;
   }
 
-  .product-image {
-    padding: 12px;
+  .product-no-image {
+    font-size: 36px;
   }
 }
 
