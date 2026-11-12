@@ -7,6 +7,10 @@ import Diamondwatch from "./assets/Diamond Watch.png";
 import Chopar from "./assets/Chopar.png";
 import Rolex from "./assets/Rolex.png";
 import Emeraldring from "./assets/Ring.png"
+import Rolex1 from "./assets/Rolex 1.png"
+import Rolex2 from "./assets/Rolex 2.png"
+import Goldearing from "./assets/Goldearing.png"
+import EaringRing from "./assets/Earing&Ring.png"
 
 // Rasmlar: MockAPI dagi "image" qiymati : import qilingan rasm
 const localImages = {
@@ -15,7 +19,11 @@ const localImages = {
     Diamondwatch,
     Chopar,
     Rolex,
-    Emeraldring
+    Emeraldring,
+    Rolex1,
+    Rolex2,
+    Goldearing,
+    EaringRing,
 };
 
 const getImage = (p) => localImages[p.image] || "";
