@@ -11,7 +11,7 @@ import Products from "./Products";
 import HomePage from "./HomePage";
 
 const BRAND = "Diamond Dumu";
-const PHONE = "+998 99 833 08 47";
+const PHONE = "+998 99 811 08 47";
 const TELEGRAM = "https://t.me/UMIDMELIEV";
 const PHONE_LINK = `tel:${PHONE.replace(/\s/g, "")}`;
 
