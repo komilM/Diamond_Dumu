@@ -15,6 +15,10 @@ import DiamondRolex from "./assets/DiamondRolex.png"
 import GoldRignset from "./assets/GoldRingset.png"
 import GoldRing from "./assets/GoldRing.png"
 import SilverRing from "./assets/SilverRing.png"
+import Goldwatch from "./assets/GoldWatch.png"
+import DiamondWatch from "./assets/DiamondWatch.png"
+import GDearing from "./assets/GDEaring.png"
+import GoldSet from "./assets/GoldSet.png"
 
 // Rasmlar: MockAPI dagi "image" qiymati : import qilingan rasm
 const localImages = {
@@ -31,7 +35,11 @@ const localImages = {
     DiamondRolex,
     GoldRignset,
     GoldRing,
-    SilverRing
+    SilverRing,
+    Goldwatch,
+    DiamondWatch,
+    GDearing,
+    GoldSet
 };
 
 const getImage = (p) => localImages[p.image] || "";
